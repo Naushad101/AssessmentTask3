@@ -19,7 +19,6 @@ public class CalculationController {
 
     @GetMapping("/run")
     public void getAllrun() {
-         // Example number
         service.executeTasks();
     }
 }

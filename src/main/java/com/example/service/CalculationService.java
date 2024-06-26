@@ -18,6 +18,7 @@ public class CalculationService {
         ExecutorService executorService = null;
 
         try {
+            log.info("Started the executeService");
             executorService=Executors.newFixedThreadPool(8);
         executorService.submit(this::squareTask);
         executorService.submit(this::cubeTask);
@@ -32,6 +33,7 @@ public class CalculationService {
         }
         finally{
             executorService.shutdown();
+            log.info("Closed the executeService");
         }
     }
 
