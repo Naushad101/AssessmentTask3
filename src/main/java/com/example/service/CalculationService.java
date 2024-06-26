@@ -75,15 +75,15 @@ public class CalculationService {
         System.out.println("Reverse of " + number + " is: " + result);
     }
 
-    private int square(int number) {
+    public int square(int number) {
         return number * number;
     }
 
-    private int cube(int number) {
+    public int cube(int number) {
         return number * number * number;
     }
 
-    private int factorial(int number) {
+    public int factorial(int number) {
         int fact = 1;
         for (int i = 2; i <= number; i++) {
             fact *= i;
@@ -91,7 +91,7 @@ public class CalculationService {
         return fact;
     }
 
-    private boolean isArmstrong(int number) {
+    public boolean isArmstrong(int number) {
         int originalNumber = number;
         int sum = 0;
         int digits = String.valueOf(number).length();
@@ -103,7 +103,7 @@ public class CalculationService {
         return originalNumber == sum;
     }
 
-    private boolean isPalindrome(int number) {
+    public boolean isPalindrome(int number) {
         int originalNumber = number;
         int reversedNumber = 0;
         while (number != 0) {
@@ -114,11 +114,11 @@ public class CalculationService {
         return originalNumber == reversedNumber;
     }
 
-    private boolean isEven(int number) {
+    public boolean isEven(int number) {
         return number % 2 == 0;
     }
 
-    private boolean isPrime(int number) {
+    public boolean isPrime(int number) {
         if (number <= 1) {
             return false;
         }
@@ -130,7 +130,7 @@ public class CalculationService {
         return true;
     }
 
-    private int reverse(int number) {
+    public int reverse(int number) {
         int reversedNumber = 0;
         while (number != 0) {
             int digit = number % 10;
