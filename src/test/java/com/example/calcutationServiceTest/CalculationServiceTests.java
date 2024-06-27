@@ -33,7 +33,7 @@ public class CalculationServiceTests {
         int expectedSquare = 16;
         when(calculationService.square(expectedSquare)).thenReturn(16);
         int actualSquare=service.square(4);
-        System.out.println("Expected "+expectedSquare+" actual: "+actualSquare);
+       // System.out.println("Expected "+expectedSquare+" actual: "+actualSquare);
         assertEquals(expectedSquare, actualSquare);
     }
 
