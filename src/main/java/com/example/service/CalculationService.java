@@ -18,63 +18,100 @@ public class CalculationService {
         ExecutorService executorService = null;
 
         try {
-            log.info("Started the executeService");
-            executorService=Executors.newFixedThreadPool(8);
-        executorService.submit(this::squareTask);
-        executorService.submit(this::cubeTask);
-        executorService.submit(this::factorialTask);
-        executorService.submit(this::armstrongTask);
-        executorService.submit(this::palindromeTask);
-        executorService.submit(this::evenTask);
-        executorService.submit(this::primeTask);
-        executorService.submit(this::reverseTask);
+            log.info("Starting the executeTasks method");
+
+            executorService = Executors.newFixedThreadPool(8);
+
+            executorService.submit(() -> squareTask());
+            executorService.submit(() -> cubeTask());
+            executorService.submit(() -> factorialTask());
+            executorService.submit(() -> armstrongTask());
+            executorService.submit(() -> palindromeTask());
+            executorService.submit(() -> evenTask());
+            executorService.submit(() -> primeTask());
+            executorService.submit(() -> reverseTask());
+
         } catch (Exception e) {
-            log.warn("Error Occured ",e.getMessage());
-        }
-        finally{
-            executorService.shutdown();
-            log.info("Closed the executeService");
+            log.error("Exception occurred while executing tasks: " + e.getMessage(), e);
+        } finally {
+            if (executorService != null) {
+                executorService.shutdown();
+                log.info("Executor service shutdown initiated");
+            }
         }
     }
 
     private void squareTask() {
-        int result = square(number);
-        System.out.println("Square of " + number + " is: " + result);
+        try {
+            int result = square(number);
+            System.out.println("Square of " + number + " is: " + result);
+        } catch (Exception e) {
+            log.error("Exception occurred in squareTask: " + e.getMessage(), e);
+        }
     }
 
     private void cubeTask() {
-        int result = cube(number);
-        System.out.println("Cube of " + number + " is: " + result);
+        try {
+            int result = cube(number);
+            System.out.println("Cube of " + number + " is: " + result);
+        } catch (Exception e) {
+            log.error("Exception occurred in cubeTask: " + e.getMessage(), e);
+        }
     }
 
     private void factorialTask() {
-        int result = factorial(number);
-        System.out.println("Factorial of " + number + " is: " + result);
+        try {
+            int result = factorial(number);
+            System.out.println("Factorial of " + number + " is: " + result);
+        } catch (Exception e) {
+            log.error("Exception occurred in factorialTask: " + e.getMessage(), e);
+        }
     }
 
     private void armstrongTask() {
-        boolean result = isArmstrong(number);
-        System.out.println(number + " is Armstrong: " + result);
+        try {
+            boolean result = isArmstrong(number);
+            System.out.println(number + " is Armstrong: " + result);
+        } catch (Exception e) {
+            log.error("Exception occurred in armstrongTask: " + e.getMessage(), e);
+        }
     }
 
     private void palindromeTask() {
-        boolean result = isPalindrome(number);
-        System.out.println(number + " is palindrome: " + result);
+        try {
+            boolean result = isPalindrome(number);
+            System.out.println(number + " is palindrome: " + result);
+        } catch (Exception e) {
+            log.error("Exception occurred in palindromeTask: " + e.getMessage(), e);
+        }
     }
 
     private void evenTask() {
-        boolean result = isEven(number);
-        System.out.println(number + " is even: " + result);
+        try {
+            boolean result = isEven(number);
+            System.out.println(number + " is even: " + result);
+        } catch (Exception e) {
+            log.error("Exception occurred in evenTask: " + e.getMessage(), e);
+        }
     }
 
     private void primeTask() {
-        boolean result = isPrime(number);
-        System.out.println(number + " is prime: " + result);
+        try {
+            boolean result = isPrime(number);
+            System.out.println(number + " is prime: " + result);
+        } catch (Exception e) {
+            log.error("Exception occurred in primeTask: " + e.getMessage(), e);
+        }
     }
 
     private void reverseTask() {
-        int result = reverse(number);
-        System.out.println("Reverse of " + number + " is: " + result);
+        try {
+            int result = reverse(number);
+            System.out.println("Reverse of " + number + " is: " + result);
+        } catch (Exception e) {
+            log.error("Exception occurred in reverseTask: " + e.getMessage(), e);
+            
+        }
     }
 
     public int square(int number) {
